@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {createElement} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function DisplayEmployeeInfo(employee) {
+    return <div>
+        <p>
+            <label> Employee ID :  <b>{employee.Id}</b></label>
+        </p>
+        <p>
+            <label> Employee Name :  <b>{employee.Name}</b></label>
+        </p>
+        <p>
+            <label> Employee Location :  <b>{employee.Location}</b></label>
+        </p>
+        <p>
+            <label> Employee Salary :  <b>{employee.Salary}</b></label>
+        </p>
+    </div>
+}
+const element= <DisplayEmployeeInfo Id="101" Name="Aswini" Location="Nugegoda" Salary="100000"></DisplayEmployeeInfo>
+ReactDOM.render(element, document.getElementById("root"));
