@@ -1,22 +1,40 @@
-import React, {createElement} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 
-function DisplayEmployeeInfo(employee) {
-    return <div>
-        <p>
-            <label> Employee ID :  <b>{employee.Id}</b></label>
-        </p>
-        <p>
-            <label> Employee Name :  <b>{employee.Name}</b></label>
-        </p>
-        <p>
-            <label> Employee Location :  <b>{employee.Location}</b></label>
-        </p>
-        <p>
-            <label> Employee Salary :  <b>{employee.Salary}</b></label>
-        </p>
-    </div>
+class Employee extends React.Component{
+    render() {
+        return <div>
+            <h1> Employee details...</h1>
+            <p>
+                <label> Employee ID : <b> {this.props.Id}</b></label>
+            </p>
+            <p>
+                <label> Employee Name : <b> {this.props.Name}</b></label>
+            </p>
+            <p>
+                <label> Employee Location : <b> {this.props.Location}</b></label>
+            </p>
+            <p>
+                <label> Employee Salary : <b> {this.props.Salary}</b></label>
+            </p>
+            <Department DeptName={this.props.DeptName} HeadName={this.props.HeadName}></Department>
+        </div>
+    }
 }
-const element= <DisplayEmployeeInfo Id="101" Name="Aswini" Location="Nugegoda" Salary="100000"></DisplayEmployeeInfo>
-ReactDOM.render(element, document.getElementById("root"));
+class Department extends React.Component{
+    render() {
+        return <div>
+            <h2> Department details...</h2>
+            <p>
+                <label> Dept Name : <b>{this.props.DeptName}</b></label>
+            </p>
+            <p>
+                <label> Head Name : <b>{this.props.HeadName}</b></label>
+            </p>
+        </div>
+    }
+}
+
+const element =<Employee Id="101" Name="Mala" Location="Jaffna" Salary="50000" DeptName="SENG" HeadName="FOS"> </Employee>
+
+    ReactDOM.render(element,document.getElementById("root"));
