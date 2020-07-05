@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
 class Employee extends React.Component{
     constructor(props) {
         super(props);
@@ -26,7 +25,7 @@ class Employee extends React.Component{
         </div>
     }
 }
-class Department extends React.Component{
+class Department extends React.Component {
     render() {
         return <div>
             <h2> Department details...</h2>
